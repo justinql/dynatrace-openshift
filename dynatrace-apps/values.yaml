@@ -1,5 +1,5 @@
 spec:
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/justinql/dynatrace-openshift.git
