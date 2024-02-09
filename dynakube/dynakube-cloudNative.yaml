@@ -61,6 +61,9 @@ spec:
   #    - key: app
   #      operator: In
   #      values: [my-frontend, my-backend, my-database]
+  namespaceSelector:
+    matchLabels:
+      dynatrace: enable 
 
   # Configuration for OneAgent instances
   #
