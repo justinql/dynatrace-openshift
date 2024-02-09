@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: dynatrace
+    namespace: argocd
     server: {{ .Values.spec.destination.server }}
   source:
     path: ''
