@@ -14,3 +14,8 @@ spec:
     path: dynakube
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
