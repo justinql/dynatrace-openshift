@@ -166,7 +166,7 @@ spec:
 
   # Configuration for ActiveGate instances.
   #
-  activeGate:
+  #activeGate:
     # Specifies which capabilities will be enabled on ActiveGate instances
     # The following capabilities can be set:
     # - routing
@@ -174,10 +174,10 @@ spec:
     # - metrics-ingest
     # - dynatrace-api
     #
-    capabilities:
-      - routing
-      - kubernetes-monitoring
-      - dynatrace-api
+    #capabilities:
+    #  - routing
+    #  - kubernetes-monitoring
+    #  - dynatrace-api
 
     # Optional: Sets how many ActiveGate pods are spawned by the StatefulSet
     # Defaults to "1"
@@ -207,13 +207,13 @@ spec:
     # Consumption of the ActiveGate heavily depends on the workload to monitor
     # The values should be adjusted according to the workload
     #
-    resources:
-      requests:
-        cpu: 500m
-        memory: 512Mi
-      limits:
-        cpu: 1000m
-        memory: 1.5Gi
+    #resources:
+    #  requests:
+    #    cpu: 500m
+    #    memory: 512Mi
+    #  limits:
+    #    cpu: 1000m
+    #    memory: 1.5Gi
 
     # Optional: Sets a node selector to control on which nodes the ActiveGate will be deployed.
     # For more information on node selectors, see https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
