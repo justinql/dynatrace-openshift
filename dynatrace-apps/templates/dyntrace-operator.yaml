@@ -16,7 +16,7 @@ spec:
     helm:
       parameters:
         - name: csidriver.enabled
-          value: 'true'
+          value: 'false'
   sources: []
   project: default
   syncPolicy:
