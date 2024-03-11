@@ -1,7 +1,7 @@
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: openshift-inovation-cluster
+  name: dynakube
   namespace: dynatrace
 spec:
   # Dynatrace apiUrl including the `/api` path at the end.
@@ -14,7 +14,7 @@ spec:
   # If unset, the name of this custom resource is used
   #
   # tokens: ""
-  tokens: openshift-inovation-cluster-tokens
+  tokens: dynatrace-tokens
 
   # Optional: Defines a custom pull secret in case you use a private registry when pulling images from the Dynatrace environment
   # The secret has to be of type 'kubernetes.io/dockerconfigjson' (see https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
@@ -71,7 +71,7 @@ spec:
     # Enables cloud-native fullstack monitoring and changes its settings
     # Cannot be used in conjunction with classic fullstack monitoring, application-only monitoring or host monitoring
     #
-    cloudNativeFullStack:
+    classicFullStack:
       # Optional: Sets a node selector to control on which nodes the OneAgent will be deployed.
       # For more information on node selectors, see https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
       #
@@ -85,6 +85,8 @@ spec:
       # Optional: Specifies tolerations to include with the OneAgent DaemonSet.
       # For more information on tolerations, see https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
       #
+      image: ""
+
       tolerations:
         - effect: NoSchedule
           key: node-role.kubernetes.io/master
@@ -178,9 +180,9 @@ spec:
     # - dynatrace-api
     #
     #capabilities:
-    #  - routing
-    #  - kubernetes-monitoring
-    #  - dynatrace-api
+    # - routing
+    # - kubernetes-monitoring
+    # - dynatrace-api
 
     # Optional: Sets how many ActiveGate pods are spawned by the StatefulSet
     # Defaults to "1"
@@ -191,7 +193,7 @@ spec:
     # Defaults to the latest ActiveGate image on the tenant's registry
     # Example: "ENVIRONMENTID.live.dynatrace.com/linux/activegate:latest"
     #
-    # image: ""
+    #image: ""
 
     # Recommended: Sets the activation group for ActiveGate instances
     #
@@ -211,12 +213,12 @@ spec:
     # The values should be adjusted according to the workload
     #
     #resources:
-    #  requests:
-    #    cpu: 500m
-    #    memory: 512Mi
-    #  limits:
-    #    cpu: 1000m
-    #    memory: 1.5Gi
+    # requests:
+    #   cpu: 500m
+    #   memory: 512Mi
+    # limits:
+    #   cpu: 1000m
+    #   memory: 1.5Gi
 
     # Optional: Sets a node selector to control on which nodes the ActiveGate will be deployed.
     # For more information on node selectors, see https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
